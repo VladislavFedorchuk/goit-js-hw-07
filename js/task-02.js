@@ -27,24 +27,14 @@ const images = [
     alt: 'Zebras on Zebra',
   },
 ];
- const gallery = document.querySelector('.gallery');
+const createEl = ({ url, alt }) =>
+  `<li  class="li">
+       <img class="img"
+       src="${url}"
+        alt="${alt}" />
+  </li>`;
 
-    function createGallery() {
-      const galleryItems = images.map((image) => createGalleryItem(image));
-      gallery.append(...galleryItems);
-    }
+const elem = images.map(createEl).join('');
 
-    function createGalleryItem(image) {
-      const galleryItem = document.createElement('li');
-      galleryItem.classList.add('gallery-item');
-
-      const img = document.createElement('img');
-      img.classList.add('gallery-img');
-      img.src = image.url;
-      img.alt = image.alt;
-
-      galleryItem.appendChild(img);
-      return galleryItem;
-    }
-
-    createGallery();
+const gallery = document.querySelector('.gallery');
+gallery.insertAdjacentHTML('beforeend', elem);
