@@ -12,3 +12,7 @@ body {
   color: #212121;
   line-height: 1.5;
 }
+.item{
+  background-color:  #F6F6FE;
+  flex-direction: column;
+}
